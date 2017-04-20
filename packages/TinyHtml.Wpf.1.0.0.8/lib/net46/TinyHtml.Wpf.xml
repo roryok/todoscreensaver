@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TinyHtml.Wpf</name>
+    </assembly>
+    <members>
+        <member name="T:ModuleInitializer">
+            <summary>
+            Used by the ModuleInit. All code inside the Initialize method is ran as soon as the assembly is loaded.
+            </summary>
+        </member>
+        <member name="M:ModuleInitializer.Initialize">
+            <summary>
+            Initializes the module.
+            </summary>
+        </member>
+        <member name="T:TinyHtml.Wpf.WpfHtmlControlBase">
+            <summary>
+            This is just here as a proxy to C++/CLI
+            </summary>
+        </member>
+        <member name="M:TinyHtml.Wpf.WpfHtmlControlBase.SetMasterStylesheet(System.String)">
+            <summary>
+            Sets the master style sheet that is used to define default HTML rendering.
+            A default css file comes with the package.
+            </summary>
+            <param name="css">CSS to use</param>
+        </member>
+        <member name="P:TinyHtml.Wpf.WpfHtmlControlBase.Html">
+            <summary>
+            HTML content to use for rendering.
+            </summary>
+        </member>
+        <member name="M:TinyHtml.Wpf.WpfHtmlControlBase.OnLoadResource(System.String)">
+            <summary>
+            Override this to implement resource loading. Currently used for images.
+            </summary>
+            <param name="url">Url like it is defined in HTML.</param>
+            <returns>Stream that contains the resource. The control will dispose this, if it is no longer needed.</returns>
+        </member>
+        <member name="M:TinyHtml.Wpf.WpfHtmlControlBase.LoadHtml(System.String,System.String)">
+            <summary>
+            Loads the given HTML and CSS content.
+            </summary>
+            <param name="html">HTML to display.</param>
+            <param name="usercss">CSS to use.</param>
+        </member>
+        <member name="P:TinyHtml.Wpf.WpfHtmlControlBase.FontSizeProperty">
+            <summary>
+            Font size to use as default font size when rendering HTML.
+            </summary>
+        </member>
+        <member name="T:TinyHtml.Wpf.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:TinyHtml.Wpf.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TinyHtml.Wpf.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="todoscreensaver.SettingsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="todoscreensaver Settings" Height="150" Width="600">
+    <Grid Margin="10,0,10,0">
+        <StackPanel>
+            <Label Height="28" Margin="5" Name="label1" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold">Choose your file</Label>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" x:Name="btnBrowse" Width="90" Margin="5" Height="25" Content="Browse" HorizontalAlignment="Left" Click="btnBrowse_Click"></Button>
+                <TextBox Grid.Column="1" x:Name="bxPath" Height="25" Margin="5" />
+            </Grid>
+            <Button Height="23" Margin="5" Name="btnClose" VerticalAlignment="Bottom" Click="btnClose_Click" HorizontalAlignment="Right" Width="76">OK</Button>
+        </StackPanel>
+    </Grid>
+</Window>
