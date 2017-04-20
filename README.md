@@ -20,11 +20,9 @@ No special formatting is required - we're literally just reading and displaying 
 
 I like to start my todo item lines with utf8 symbols like the ones below 
 
-☐ BALLOT BOX (U+2610) -- not yet completed task
-
-✓ CHECK MARK (U+2713) -- completed task 
-
-✗ BALLOT X (U+2717) -- cancelled or failed task 
+- ☐ BALLOT BOX (U+2610) -- not yet completed task
+- ✓ CHECK MARK (U+2713) -- completed task 
+- ✗ BALLOT X (U+2717) -- cancelled or failed task 
 
 ## credits
 
