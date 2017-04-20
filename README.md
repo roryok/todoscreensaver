@@ -26,7 +26,7 @@ I like to start my todo item lines with utf8 symbols like the ones below
 
 ## credits
 
-The most complicated parts of this source are borrowed from Sean Sexton's Wave Sim Screensaver, available on CodePlex and licenced under GNU General Public License version 2 (GPLv2)
+The most complicated parts of this source are borrowed from [Sean Sexton's](http://www.seans.com/) [Wave Sim Screensaver](http://wavesimscrsaver.codeplex.com), available on CodePlex and licenced under GNU General Public License version 2 (GPLv2)
 
 ## licence
 
