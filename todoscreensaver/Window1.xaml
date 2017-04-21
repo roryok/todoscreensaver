@@ -1,7 +1,7 @@
 ﻿<Window x:Class="todoscreensaver.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Window1" ShowInTaskbar="False" ResizeMode="NoResize" WindowStyle="None" MouseDown="Window_MouseDown" KeyDown="Window_KeyDown" Background="White">
+    Title="Window1" ShowInTaskbar="False" ResizeMode="NoResize" WindowStyle="None" MouseMove="Window_MouseMove" KeyDown="Window_KeyDown" Background="White">
     <Grid Name="grid1" Margin="50,0,50,50" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
