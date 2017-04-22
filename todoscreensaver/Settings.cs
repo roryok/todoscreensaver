@@ -35,6 +35,8 @@ namespace todoscreensaver
             RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\todoscreensaver");
             if (key != null)
                 DataPath = (string)key.GetValue("file");
+            else
+                DataPath = "";
         }
     }
 }

@@ -27,7 +27,9 @@ namespace todoscreensaver
             // if file not found)
             settings = new Settings();
             settings.Load();
-            // bxWindowsLiveId.Text = settings.WindowsLiveId;            
+            // bxWindowsLiveId.Text = settings.WindowsLiveId; 
+
+            bxPath.Text = settings.DataPath;
         }
  
         /// <summary>
