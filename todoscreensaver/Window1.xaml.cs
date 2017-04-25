@@ -42,6 +42,19 @@ namespace todoscreensaver
             // load settings from registry
             Settings.Load();
 
+            switch (Settings.ScreensaverCloseMode) {
+                case CloseMode.MOUSE_DOWN:
+                    this.MouseMove -= Window_MouseMove;
+                    this.MouseDown += Window_MouseDown;
+                    break;
+                case CloseMode.MOUSE_MOVE:
+                    this.MouseMove += Window_MouseMove;
+                    this.MouseDown -= Window_MouseDown;
+                    break;
+                default:
+                    break;
+            }
+
             isFirstTime = false;
 
             try
@@ -80,6 +93,15 @@ namespace todoscreensaver
                 isFirstTime = true;
                 return;
             }
+            Application.Current.Shutdown();
+        }
+
+        /// <summary>
+        /// close app on mousedown
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) {
             Application.Current.Shutdown();
         }
 
