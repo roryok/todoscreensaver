@@ -33,12 +33,29 @@ namespace todoscreensaver
         /// </summary>
         public Exception LastException { get; set; }
 
+        private bool isFirstTime;
+
         public Window1()
         {
             InitializeComponent();
 
             // load settings from registry
             Settings.Load();
+
+            switch (Settings.ScreensaverCloseMode) {
+                case CloseMode.MOUSE_DOWN:
+                    this.MouseMove -= Window_MouseMove;
+                    this.MouseDown += Window_MouseDown;
+                    break;
+                case CloseMode.MOUSE_MOVE:
+                    this.MouseMove += Window_MouseMove;
+                    this.MouseDown -= Window_MouseDown;
+                    break;
+                default:
+                    break;
+            }
+
+            isFirstTime = false;
 
             try
             {
@@ -66,12 +83,25 @@ namespace todoscreensaver
         }                
 
         /// <summary>
+        /// close app on mousemove
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!isFirstTime) {
+                isFirstTime = true;
+                return;
+            }
+            Application.Current.Shutdown();
+        }
+
+        /// <summary>
         /// close app on mousedown
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) {
             Application.Current.Shutdown();
         }
 
