@@ -57,7 +57,6 @@ namespace todoscreensaver
             {
                 bxPath.Text = fld.FileName;
                 settings.DataPath = fld.FileName;
-                settings.Save();
             }
         }
     }
