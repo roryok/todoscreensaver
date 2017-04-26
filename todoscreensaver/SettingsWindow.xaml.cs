@@ -27,7 +27,17 @@ namespace todoscreensaver
             // if file not found)
             settings = new Settings();
             settings.Load();
-            // bxWindowsLiveId.Text = settings.WindowsLiveId;            
+            // bxWindowsLiveId.Text = settings.WindowsLiveId;       
+
+            switch (settings.ScreensaverCloseMode) {
+                case CloseMode.MOUSE_MOVE:
+                    radioButton_DeacMouseMove.IsChecked = true;
+                    break;
+                case CloseMode.MOUSE_DOWN:
+                default:
+                    radioButton_DeacMouseDown.IsChecked = true;
+                    break;
+            }
         }
  
         /// <summary>
@@ -57,6 +67,14 @@ namespace todoscreensaver
                 settings.DataPath = fld.FileName;
                 settings.Save();
             }
+        }
+
+        private void radioButton_DeacMouseMove_Checked(object sender, RoutedEventArgs e) {
+            settings.ScreensaverCloseMode = CloseMode.MOUSE_MOVE;
+        }
+
+        private void radioButton_DeacMouseDown_Checked(object sender, RoutedEventArgs e) {
+            settings.ScreensaverCloseMode = CloseMode.MOUSE_DOWN;
         }
     }
 }
