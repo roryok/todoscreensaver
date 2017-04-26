@@ -49,6 +49,7 @@ namespace todoscreensaver
         /// <param name="e"></param>
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
+            settings.DataPath = bxPath.Text;
             settings.Save();
             this.Close();
         }
@@ -66,7 +67,6 @@ namespace todoscreensaver
             if (result == System.Windows.Forms.DialogResult.OK)
             {
                 bxPath.Text = fld.FileName;
-                settings.DataPath = fld.FileName;
             }
         }
 
