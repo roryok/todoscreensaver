@@ -47,7 +47,7 @@ namespace todoscreensaver
             // Get the value stored in the Registry
             RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\todoscreensaver");
             if (key != null) {
-                DataPath = (string)key.GetValue("file");
+                DataPath = (string)key.GetValue("file", "");
                 ScreensaverCloseMode = (CloseMode)key.GetValue("close_mode", CloseMode.MOUSE_DOWN);
             }
         }
