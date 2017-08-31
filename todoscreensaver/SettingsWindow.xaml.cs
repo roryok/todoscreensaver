@@ -23,11 +23,9 @@ namespace todoscreensaver
         {
             InitializeComponent();
  
-            // Load settings from file (or just set to default values
-            // if file not found)
+            // Load settings from file (or just set to default values if file not found)
             settings = new Settings();
             settings.Load();
-            // bxWindowsLiveId.Text = settings.WindowsLiveId; 
 
             bxPath.Text = settings.DataPath;     
 
@@ -40,6 +38,10 @@ namespace todoscreensaver
                     radioButton_DeacMouseDown.IsChecked = true;
                     break;
             }
+
+            ClrPcker_Background.SelectedColor = settings.BackgroundColor.Color;
+            ClrPcker_Foreground.SelectedColor = settings.ForegroundColor.Color;
+                        
         }
  
         /// <summary>
@@ -70,12 +72,35 @@ namespace todoscreensaver
             }
         }
 
+
         private void radioButton_DeacMouseMove_Checked(object sender, RoutedEventArgs e) {
             settings.ScreensaverCloseMode = CloseMode.MOUSE_MOVE;
         }
 
         private void radioButton_DeacMouseDown_Checked(object sender, RoutedEventArgs e) {
             settings.ScreensaverCloseMode = CloseMode.MOUSE_DOWN;
+        }
+
+        /// <summary>
+        /// handle background color picker change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ClrPcker_Background_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        {
+            var x = ((Xceed.Wpf.Toolkit.ColorPicker)sender).SelectedColor;
+            settings.BackgroundColor = new SolidColorBrush((Color)x);
+        }
+
+        /// <summary>
+        /// handle foreground color picker change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ClrPcker_Foreground_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        {
+            var x = ((Xceed.Wpf.Toolkit.ColorPicker)sender).SelectedColor;
+            settings.ForegroundColor = new SolidColorBrush((Color)x);
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿<Window x:Class="todoscreensaver.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Window1" ShowInTaskbar="False" ResizeMode="NoResize" WindowStyle="None" KeyDown="Window_KeyDown" Background="White">
-    <Grid Name="grid1" Margin="50,0,50,50" VerticalAlignment="Stretch">
+    Title="Window1" ShowInTaskbar="False" ResizeMode="NoResize" WindowStyle="None" KeyDown="Window_KeyDown">
+    <Grid Name="grid1" VerticalAlignment="Stretch" Background="{Binding Path=Settings.BackgroundColor}" Margin="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>        
-        <Grid Grid.Column="0">
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Margin="50,0,50,50">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
