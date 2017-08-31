@@ -12,9 +12,9 @@ It doesn't *have* to be a todo list of course, that's just the best use case I c
 
 ## settings
 
-PATH - where your text file is stored 
-CLOSE MODE - dismiss either with a mouse movement or with the escape key
-BACKGROUND / FOREGROUND - set colors for the screensaver. 
+- **PATH** - where your text file is stored 
+- **CLOSE MODE** - dismiss either with a mouse movement or with the escape key
+- **BACKGROUND / FOREGROUND** - set colors for the screensaver. 
 
 ## formatting the text file
 
