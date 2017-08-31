@@ -12,7 +12,9 @@ It doesn't *have* to be a todo list of course, that's just the best use case I c
 
 ## settings
 
-So far there's only one setting - where to grab the text file from. I keep mine on dropbox so I can modify it remotely. 
+PATH - where your text file is stored 
+CLOSE MODE - dismiss either with a mouse movement or with the escape key
+BACKGROUND / FOREGROUND - set colors for the screensaver. 
 
 ## formatting the text file
 
