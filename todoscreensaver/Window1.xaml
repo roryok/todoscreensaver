@@ -13,7 +13,7 @@
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="1" x:Name="Filename" Foreground="{Binding Path=Settings.ForegroundColor}" FontSize="16" FontStyle="Italic" Margin="5" HorizontalAlignment="Left"></TextBlock>
-            <TextBlock Grid.Row="2" x:Name="Content" Foreground="{Binding Path=Settings.ForegroundColor}" FontSize="14" Margin="5" HorizontalAlignment="Left"></TextBlock>
+            <WebBrowser Grid.Row="2" x:Name="Browser"></WebBrowser>
         </Grid>
     </Grid>
 </Window>

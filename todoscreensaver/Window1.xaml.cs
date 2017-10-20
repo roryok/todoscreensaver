@@ -17,6 +17,8 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.ComponentModel;
+using System.Reflection;
+using Markdig;
 
 namespace todoscreensaver
 {
@@ -95,12 +97,39 @@ namespace todoscreensaver
                 if (string.IsNullOrEmpty(Settings.DataPath))
                 {
                     Filename.Text = "Please choose a file in screensaver settings!";
+                    Browser.NavigateToString("Please choose a file in screensaver settings!");
                 }
                 else
                 {
                     // load content from file
-                    string content = System.IO.File.ReadAllText(Settings.DataPath);
-                    Content.Text = content;
+                    string content = System.IO.File.ReadAllText(Settings.DataPath, Encoding.UTF8);
+
+                    Console.WriteLine(content);
+
+                    // convert markdown to html
+                    var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
+                    content = Markdown.ToHtml(content, pipeline);
+
+                    Console.WriteLine(content);   // prints: <p>This is a text with some <em>emphasis</em></p>
+                    
+                    string html = @"<html>
+<head>
+    <meta charset='UTF-8'>
+    <style>
+        html, body { 
+            font-family: Calibri;
+            background: #" + Settings.BackgroundColor.Color.ToString().Substring(3) + @";
+            color: #" + Settings.ForegroundColor.Color.ToString().Substring(3) + @";
+        }        
+    </style>
+</head>
+<body>    
+    <div id='content'>" + content + @"
+    </div>
+</body>
+</html>";
+
+                    Browser.NavigateToString(html);
                     Filename.Text = Settings.DataPath;
                 }
             }
@@ -110,7 +139,8 @@ namespace todoscreensaver
                 // store exception in state so we can show the full data later if prompted
                 LastException = err; 
                 Filename.Text = "Error loading " + Settings.DataPath;
-                Content.Text = err.Message;
+                // Content.Text = err.Message;
+                Browser.NavigateToString(err.Message);
             }
         }                
 
@@ -149,7 +179,8 @@ namespace todoscreensaver
                 // show last exception if present
                 if (LastException != null)
                 {
-                    Content.Text = LastException.ToString().Replace(" at", Environment.NewLine + " at");
+                    // Content.Text = LastException.ToString().Replace(" at", Environment.NewLine + " at");
+                    Browser.NavigateToString(LastException.ToString().Replace(" at", Environment.NewLine + " at"));
                 }
             }
             else
